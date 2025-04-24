@@ -5,11 +5,17 @@ This project implements a robust wildfire detection model using a hybrid approac
 
 📦 wildfire-prediction-transformer
 ┣ 📜 final_wf.py               # Main training, evaluation, and prediction script
+
 ┣ 📜 Fire_dataset_cleaned.csv  # Cleaned input dataset
+
 ┣ 📜 temporal_transformer_model.pth # Trained transformer model
+
 ┣ 📜 scaler.pkl                # Saved scaler for normalization
+
 ┣ 📜 README.md                 # Project documentation
+
 🚀 Features
+
 Feature Selection with XGBoost
 
 Deep Learning with Temporal Transformer (PyTorch)
