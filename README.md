@@ -116,4 +116,5 @@ Real-time prediction integration with weather APIs
 Alert system for fire-prone areas
 
 👩‍💻 Author
-Developed with Parvathala Gayathri
+
+Parvathala Gayathri
