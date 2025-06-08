@@ -6,9 +6,13 @@ This project implements a robust wildfire detection system using a hybrid approa
 
 wildfire-prediction-transformer/
 ├── final_wf.py # Main training, evaluation, and prediction script
+
 ├── Fire_dataset_cleaned.csv # Cleaned input dataset
+
 ├── temporal_transformer_model.pth # Trained transformer model weights
+
 ├── scaler.pkl # Scaler for data normalization
+
 ├── README.md # Project documentation
 
 markdown
