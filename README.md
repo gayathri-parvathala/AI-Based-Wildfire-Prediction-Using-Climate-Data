@@ -1,96 +1,97 @@
-# 🔥 AI-Based-Wildfire-Prediction-Using-Climate-Data
-This project implements a robust wildfire detection model using a hybrid approach of traditional machine learning (XGBoost) for feature selection and a deep learning-based Temporal Transformer model for classification. Additionally, it includes SHAP-based interpretability and a user-friendly CLI prediction interface.
+# AI-Based Wildfire Prediction Using Climate Data
 
-📁 Project Structure
+This project implements a robust wildfire detection system using a hybrid approach combining traditional machine learning (XGBoost) for feature selection and a deep learning-based Temporal Transformer model for classification. It includes SHAP-based interpretability and a command-line interface (CLI) for real-time wildfire prediction.
 
-📦 wildfire-prediction-transformer
-┣ 📜 final_wf.py               # Main training, evaluation, and prediction script
+## Project Structure
 
-┣ 📜 Fire_dataset_cleaned.csv  # Cleaned input dataset
+wildfire-prediction-transformer/
+├── final_wf.py # Main training, evaluation, and prediction script
+├── Fire_dataset_cleaned.csv # Cleaned input dataset
+├── temporal_transformer_model.pth # Trained transformer model weights
+├── scaler.pkl # Scaler for data normalization
+├── README.md # Project documentation
 
-┣ 📜 temporal_transformer_model.pth # Trained transformer model
+markdown
+Copy code
 
-┣ 📜 scaler.pkl                # Saved scaler for normalization
+## Features
 
-┣ 📜 README.md                 # Project documentation
+- XGBoost-based feature importance analysis
+- Transformer-based sequence classification model (PyTorch)
+- SHAP interpretability for model explanations
+- RobustScaler for outlier-resistant preprocessing
+- CLI interface for wildfire prediction
 
-🚀 Features
+## Dataset
 
-Feature Selection with XGBoost
+The dataset (`Fire_dataset_cleaned.csv`) includes the following features:
+- Temperature
+- RH (Relative Humidity)
+- Ws (Wind speed)
+- Rain
+- Fire indices: FFMC, DMC, DC, ISI, BUI, FWI
+- Classes (Label: Fire or No Fire)
 
-Deep Learning with Temporal Transformer (PyTorch)
+## Model Architecture
 
-SHAP for Interpretability
+### XGBoost
+Used to identify the top 10 most important features through feature importance ranking.
 
-Robust Preprocessing using RobustScaler
+### Temporal Transformer
+A PyTorch-based Transformer encoder model for binary classification:
+- Includes dropout regularization
+- Applies early stopping for improved generalization
+- Uses positional encoding and attention mechanisms
 
-Interactive Prediction Interface with CLI
+## Training and Evaluation
 
-📊 Dataset
-The dataset used is Fire_dataset_cleaned.csv, which includes meteorological features such as:
+To train and evaluate the model, run:
 
-Temperature, RH (Relative Humidity), Ws (Wind speed), Rain
-
-Fire indices: FFMC, DMC, DC, ISI, BUI, FWI
-
-Label: Classes (fire or not fire)
-
-🧠 Model Architecture
-🔹 XGBoost
-Used for initial training to determine top 10 most important features.
-
-🔹 Temporal Transformer
-A PyTorch-based Transformer Encoder for classification using selected features.
-
-Regularization with Dropout.
-
-Early Stopping applied for optimal performance.
-
-📈 Training & Evaluation
-Run the main script to train the model:
-
-
-
+```bash
 python final_wf.py
-The training includes:
+This script performs:
 
 Data preprocessing
 
-XGBoost feature selection
+Feature selection using XGBoost
 
-Temporal Transformer model training
+Transformer model training and evaluation
 
-Evaluation and Accuracy reporting
+Accuracy and metrics reporting
 
-🔍 Explainability
-SHAP values are calculated to interpret XGBoost model predictions.
+Explainability
+SHAP (SHapley Additive exPlanations) is used to interpret predictions made by the XGBoost model. It provides:
 
-Generates a SHAP summary plot to visualize feature importance.
+Summary plots of feature contributions
 
-🤖 CLI Prediction Interface
-After training, use the interactive command-line interface to input features and predict wildfire occurrence:
+Visual insights into how features affect predictions
 
+CLI Prediction Interface
+After training, the same script (final_wf.py) can be used to run an interactive command-line interface for predictions:
+
+bash
+Copy code
 python final_wf.py
-Follow the prompts to input values like Temperature, RH, Ws, etc., and the model will output:
+You will be prompted to input values for selected features. The model will return:
 
 Raw logits
 
 Softmax probabilities
 
-Final prediction (Fire / No Fire)
+Final prediction: Fire / No Fire
 
-💾 Saved Files
-temporal_transformer_model.pth: Trained Transformer model weights
+Saved Files
+temporal_transformer_model.pth: Trained model weights
 
-scaler.pkl: Scaler used for consistent normalization during predictions
+scaler.pkl: Fitted scaler used for input normalization
 
-📦 Requirements
-Install the required dependencies using:
+Requirements
+Install required dependencies using:
 
-
+bash
+Copy code
 pip install -r requirements.txt
-Dependencies include:
-
+Dependencies:
 torch
 
 xgboost
@@ -107,20 +108,19 @@ termcolor
 
 joblib
 
-📌 Notes
-Trained on top 10 features selected by XGBoost.
+Notes
+Feature selection improves model efficiency and interpretability
 
-Transformer trained with early stopping for better generalization.
+Model uses early stopping and dropout to prevent overfitting
 
-Supports gradient clipping and dropout to avoid overfitting.
+CLI makes prediction easy without needing a GUI
 
-🧠 Future Enhancements
-Deploy as a Flask web app or Streamlit dashboard
+Future Enhancements
+Web-based deployment using Flask or Streamlit
 
-Real-time prediction integration with weather APIs
+Real-time predictions using weather API data
 
-Alert system for fire-prone areas
+Alerting system for high-risk zones
 
-👩‍💻 Author
-
+Author
 Parvathala Gayathri
